@@ -15,12 +15,12 @@ local teleport_locations = {
 local function teleport_to_random_location(player)
     local location = teleport_locations[math.random(1, #teleport_locations)]
     player:set_pos(location)
-    minetest.chat_send_player(player:get_player_name(), "Téléporté à la position " .. minetest.pos_to_string(location))
+    minetest.chat_send_player(player:get_player_name(), "Teleported at the position " .. minetest.pos_to_string(location))
 end
 
 -- Enregistrement de la commande /rtp
 minetest.register_chatcommand("rtp", {
-    description = "Téléporte à une position aléatoire",
+    description = "Teleport to a random position",
     privs = {shout = true},
     func = function(name, param)
         local player = minetest.get_player_by_name(name)
@@ -31,5 +31,5 @@ minetest.register_chatcommand("rtp", {
 })
 
 -- Log pour confirmer le chargement du mod
-minetest.log("action", "<IMPERMOD>[" .. modname .. "] Mod chargé avec succès. NGGYU")
+minetest.log("action", "<RTP>[" .. modname .. "] Mod charged Succesfully. NGGYU")
 
